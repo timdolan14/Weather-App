@@ -1,7 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    background-color: lightgrey;
+    background-color: rgb(245, 240, 240);
 }
 
 h1 {
@@ -14,3 +14,7 @@ button {
     margin-top: 20px;
 }
 
+.city-search {
+    height: 35px;
+    margin-top: 10px;
+}
