@@ -6,6 +6,8 @@ https://timdolan14.github.io/Weather-App/
 
 ## Github Repo
 
+https://github.com/timdolan14/Weather-App
+
 ## Description 
 
 ## Usage 
