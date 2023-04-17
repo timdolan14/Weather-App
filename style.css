@@ -2,12 +2,16 @@
     margin: 0px;
     padding: 0px;
     background-color: rgb(245, 240, 240);
+    font-family: 'Times New Roman', Times, serif
 }
 
 h1 {
     background: navy;
-    height: 60px;
+    font-size: 50px;
+    height: 70px;
     color: aliceblue;
+    padding: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 button {
@@ -17,4 +21,17 @@ button {
 .city-search {
     height: 35px;
     margin-top: 10px;
+    padding-left: 10px;
 }
+
+.city-forecast {
+    font-size: 20px;
+}
+
+.btn-group h2 {
+    font-size: 40px;
+    border-bottom: solid black;
+    border-bottom-style: double;
+
+}
+
