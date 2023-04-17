@@ -28,10 +28,11 @@ button {
     font-size: 20px;
 }
 
-.btn-group h2 {
+h2 {
     font-size: 40px;
-    border-bottom: solid black;
-    border-bottom-style: double;
-
 }
 
+.btn-group h2 {
+    border-bottom: solid black;
+
+}
