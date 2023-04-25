@@ -1,7 +1,7 @@
 // Establish Vars
 
 var searchBtn = document.querySelector('.btn')
-var searchInput = document.querySelector('search-bar').value
+var searchInput = document.querySelector('search-bar')
 var wGrid = document.querySelector('.city-forecast')
 var fiveDay = document.querySelector('.five-forecast')
 
