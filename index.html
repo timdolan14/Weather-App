@@ -12,7 +12,7 @@
 
 <body>
     <header class="header text-center">
-        <h1>Weather</h1>
+        <h1>Weather Forecast</h1>
     </header>
 
     <main>
@@ -30,26 +30,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="city-forecast flex-row align-content-right text-right min-100-vh">
-                        <h2>"City Weather"</h2>
-                        <p>Temp:</p>
-                        <p>Wind:</p>
-                        <p>Humdity:</p>
+                <div class="row">
+                    <div class="city-forecast">
+                        <h2>"City Weather (placeholder)"</h2>
+                        <li id="city-name"></li>
+                        <li id="windspeed"></li>
+                        <li id="weather"></li>
+                        <li id="feels-like"></li>
                     </div>
                 </div>
                 <div class="col">
-                <div class="btn-group btn-group-vertical col-6 gap-2 btn-large">
-                    <h2>Previous Cities:</h2>
-                    <button type="button" class="btn btn-primary">City 1</button>
-                    <button type="button" class="btn btn-primary">City 2</button>
-                    <button type="button" class="btn btn-primary">City 3</button>
-                    <button type="button" class="btn btn-primary">City 4</button>
+                    <div class="previous cities">
+                        <h2>Previous Cities:</h2>
+                        <li id="Previous-City1"></li>
+                        <li id="Previous-City2"></li>
+                        <li id="Previous-City3"></li>
+                        <li id="Previous-City4"></li>
+                    </div>
                 </div>
-                </div>
-                <div class="col">
+                <div class="five-day-forecast">
                     <div class="five-forecast flex-row align-content-right text-right min-100-vh">
                         <h2>Five Day Forecast:</h2>
+
                     </div>
                 </div>
             </div>
