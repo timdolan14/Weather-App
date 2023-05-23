@@ -24,14 +24,59 @@ button {
     padding-left: 10px;
 }
 
+.forecast-day {
+    border: black solid 3px;
+    background-color: rgb(1, 1, 36);
+    margin: 10px;
+    
+}
+.forecast-day p {
+    background-color: rgb(1, 1, 36);
+    color: white;
+}
+
+
+h3 {
+    background-color: rgb(1, 1, 36);
+    color: white;
+}
+
+.city-forecast h2 {
+    background-color: rgb(1, 1, 36);
+    color: white;
+}
+
 .city-forecast {
-    font-size: 20px;
-    border: 2px solid black;
+    background-color: rgb(1, 1, 36);
+    color: black;
 }
 
 .city-forecast p {
-    padding: 20px;
+    background-color: rgb(1, 1, 36);
+    color: white;
 }
+
+
+.five-day-forecast {
+  width: 100%;
+}
+
+.five-day-forecast h2 {
+  text-align: center;
+}
+
+.five-forecast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
 
 h2 {
     font-size: 40px;
