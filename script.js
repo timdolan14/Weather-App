@@ -23,10 +23,14 @@ function fiveDayForecast(name) {
         .then(function (data) {
             fiveDay.innerHTML = "";
             for (let i = 0; i < data.list.length; i += 8) {
-                var day = data.list[i]
-                fiveDay.innerHTML += `<div class="forecast-day"><h3>${day.dt_txt}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
+                var day = data.list[i];
+                var date_text = day.dt_text;
+                var dateOnly = date_text.split(" ")[0];
+                fiveDay.innerHTML += `<div class="forecast-day"><h3>${dateOnly}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
             }
+            console.log(data);
         })
+
 }
 
 function currentDay(name) {
@@ -39,8 +43,10 @@ function currentDay(name) {
             return response.json();
         })
         .then(function (data) {
-            var day = data.list[0]
-            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.city.name} ${day.dt_txt}</h2> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
+            var day = data.list[0];
+            var date_text = day.dt_text;
+            var dateOnly = date_text.split(" ")[0];
+            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.city.name} ${dateOnly}</h2> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
         })
 }
 
