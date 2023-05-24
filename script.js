@@ -1,17 +1,19 @@
 // Establish Vars
 
-var searchBtn = document.querySelector('.btn')
-var searchInput = document.querySelector('search-bar')
+var searchBtn = document.querySelector('.search-btn')
+var searchInput = document.querySelector('.search-bar');
 var cityForecast = document.querySelector('.city-forecast')
 var fiveDay = document.querySelector('.five-forecast')
-
+var searchValue = searchInput.value;
+var citySearch = document.querySelector('.city-search')
 var APIkey = "72de6b11fa4df733f08169c8a7643196"
 
-// Fetch Request
+// Fetch Requests
 
 function fiveDayForecast() {
-    var fiveDayForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${"San Diego"}&appid=${APIkey}&units=imperial`
-    fetch(fiveDayForecast)
+    var fiveDayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput.value}&appid=${APIkey}&units=imperial`;
+    // var fiveDayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=seattle&appid=${APIkey}&units=imperial`;
+    fetch(fiveDayForecastURL)
         .then(function (response) {
             if (!response.ok) {
                 throw response.json();
@@ -29,10 +31,10 @@ function fiveDayForecast() {
     console.log("clicked")
 }
 
-
 function currentDay() {
-    var currentDay = `https://api.openweathermap.org/data/2.5/forecast?q=${"San Diego"}&appid=${APIkey}&units=imperial`
-    fetch(currentDay)
+    var currentDayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput.value}&appid=${APIkey}&units=imperial`;
+    // var currentDayURL = `https://api.openweathermap.org/data/2.5/forecast?q=seattle&appid=${APIkey}&units=imperial`
+    fetch(currentDayURL)
         .then(function (response) {
             if (!response.ok) {
                 throw response.json();
@@ -47,6 +49,13 @@ function currentDay() {
     console.log("clicked2")
 }
 
+function renderSearchHistory () {
+    citySearch.innerHTML = '';
+    
+}
 
-searchBtn.addEventListener("click", currentDay);
-searchBtn.addEventListener("click", fiveDayForecast);
+searchBtn.addEventListener("submit", function(event) {
+    event.preventDefault();
+    currentDay();
+    fiveDayForecast();
+});
