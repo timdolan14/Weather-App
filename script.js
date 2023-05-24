@@ -4,15 +4,15 @@ var searchBtn = document.querySelector('.search-btn')
 var searchInput = document.querySelector('.search-bar');
 var cityForecast = document.querySelector('.city-forecast')
 var fiveDay = document.querySelector('.five-forecast')
-var searchValue = searchInput.value;
+var cityList = []
 var citySearch = document.querySelector('.city-search')
+var previousCities = document.querySelector('.previous-cities')
 var APIkey = "72de6b11fa4df733f08169c8a7643196"
 
 // Fetch Requests
 
-function fiveDayForecast() {
-    var fiveDayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput.value}&appid=${APIkey}&units=imperial`;
-    // var fiveDayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=seattle&appid=${APIkey}&units=imperial`;
+function fiveDayForecast(name) {
+    var fiveDayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&appid=${APIkey}&units=imperial`;
     fetch(fiveDayForecastURL)
         .then(function (response) {
             if (!response.ok) {
@@ -21,19 +21,16 @@ function fiveDayForecast() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
+            fiveDay.innerHTML = "";
             for (let i = 0; i < data.list.length; i += 8) {
                 var day = data.list[i]
                 fiveDay.innerHTML += `<div class="forecast-day"><h3>${day.dt_txt}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
             }
         })
-
-    console.log("clicked")
 }
 
-function currentDay() {
-    var currentDayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput.value}&appid=${APIkey}&units=imperial`;
-    // var currentDayURL = `https://api.openweathermap.org/data/2.5/forecast?q=seattle&appid=${APIkey}&units=imperial`
+function currentDay(name) {
+    var currentDayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&appid=${APIkey}&units=imperial`;
     fetch(currentDayURL)
         .then(function (response) {
             if (!response.ok) {
@@ -42,20 +39,27 @@ function currentDay() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var day = data.list[0]
-            cityForecast.innerHTML += `<div class="city-forecast"><h2>${data.city.name} ${day.dt_txt}</h2> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
+            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.city.name} ${day.dt_txt}</h2> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
         })
-    console.log("clicked2")
 }
 
-function renderSearchHistory () {
-    citySearch.innerHTML = '';
-    
+function saveToLocalStorage() {
+    cityList.push(citySearch.value);
+    localStorage.setItem("citySearch", cityList);
+    var recentButton = document.createElement('button')
+    recentButton.textContent = citySearch.value;
+    recentButton.addEventListener("click", function (event) {
+        console.log("Prev Button Search");
+        console.log(recentButton.innerHTML);
+        currentDay(recentButton.innerHTML);
+        fiveDayForecast(recentButton.innerHTML);
+    })
+    previousCities.appendChild(recentButton);
 }
 
-searchBtn.addEventListener("submit", function(event) {
-    event.preventDefault();
-    currentDay();
-    fiveDayForecast();
+searchBtn.addEventListener("click", function (event) {
+    currentDay(citySearch.value);
+    fiveDayForecast(citySearch.value);
+    saveToLocalStorage();
 });
