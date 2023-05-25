@@ -26,7 +26,7 @@ function currentDay(data) {
         })
         .then(function (data) {
             var today = dayjs().format('MM/DD/YYYY');
-            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.name} [${today}]</h2> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/><p>Temp: ${data.main.temp} °F</p><p>Wind: ${data.wind.speed} mph</p><p>Humidity: ${data.main.humidity}%</p></div>`;
+            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.name} (${today})</h2> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/><p>Temp: ${data.main.temp} °F</p><p>Wind: ${data.wind.speed} mph</p><p>Humidity: ${data.main.humidity}%</p></div>`;
             console.log(data);
         });
 }

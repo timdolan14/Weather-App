@@ -9,11 +9,18 @@ https://timdolan14.github.io/Weather-App/
 https://github.com/timdolan14/Weather-App
 
 ## Description 
+![SC]
 
-With this app, the User can quickly and easily find the current weather conditions of any city in the US. Simply enter the city you want to check, and this app will provide you with the latest information about the temperature, humidity and wind speed.
+This app offers users a seamless way to access the current weather conditions of any city in the World. With a simple search, users can enter their desired city and instantly retrieve the latest temperature, humidity, and wind speed information. The app's primary goal is to provide users with accurate and up-to-date weather data, ensuring that they are well-informed.
 
-This app features a user-friendly interface that is easy to navigate, so you can get the information you need without any hassle. Plus, with real-time updates, you can be sure that you're getting the most accurate and up-to-date weather information available.
+Navigating through the app is effortless, thanks to its intuitive layout and clear display of weather information. The search functionality is prominently placed, allowing users to quickly enter the city they want to check without any hassle. This streamlined design ensures that users can obtain the weather details they need without wasting time or encountering confusion.
 
 ## Usage 
 
 To review this Site Creation, you can review the notes in each section. Open the Chrome DevTools by pressing Command+Option+I (macOS) or Control+Shift+I (Windows). A console panel should open either below or to the side of the webpage in the browser.
+
+## Credits
+N/A
+
+## License
+N/A

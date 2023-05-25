@@ -5,84 +5,86 @@
     font-family: 'Times New Roman', Times, serif
 }
 
+/* Site Title */
 h1 {
-    background: navy;
+    background: rgb(26, 173, 114);
     font-size: 50px;
     height: 70px;
     color: aliceblue;
-    padding: 10px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-button {
-    margin-top: 20px;
-}
-
+/* Search Bar */
 .city-search {
-    height: 35px;
+    height: 45px;
     margin-top: 10px;
     padding-left: 10px;
 }
 
-.forecast-day {
-    border: black solid 3px;
-    background-color: rgb(1, 1, 36);
-    margin: 10px;
+.search-btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 45px;
+    background-color: rgb(200, 199, 199);
+}
+
+/* Previous Cities */
+.previous-cities h2 {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.previous-cities {
+    border: black 20px;
+    text-align: justify;
     
 }
-.forecast-day p {
-    background-color: rgb(1, 1, 36);
+
+.previous-cities button {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 150px;
+    height: 40px;
+    line-height: normal;
+    background-color: rgb(26, 173, 114);
     color: white;
+    margin-top: 20px;
 }
 
-
+.forecast-day p,
+.city-forecast p,
+.city-forecast h2,
 h3 {
     background-color: rgb(1, 1, 36);
     color: white;
 }
 
-.city-forecast h2 {
-    background-color: rgb(1, 1, 36);
-    color: white;
-}
-
+/* Current City Forecast */
 .city-forecast {
     background-color: rgb(1, 1, 36);
     color: black;
+    width: 100%;
 }
 
-.city-forecast p {
+/* Five Day Forecast */
+.forecast-day {
+    border: black solid 3px;
     background-color: rgb(1, 1, 36);
-    color: white;
+    margin: 10px;
 }
-
 
 .five-day-forecast {
   width: 100%;
-}
-
-.five-day-forecast h2 {
-  text-align: center;
+  align-items: right;
 }
 
 .five-forecast {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-}
-
-.column {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #ccc;
+  justify-content: right;
+  border: black 20px;
 }
 
 
-h2 {
-    font-size: 40px;
-}
-
-.btn-group h2 {
-    border-bottom: solid black;
-
-}
