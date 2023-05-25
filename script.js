@@ -10,6 +10,7 @@ var previousCities = document.querySelector('.previous-cities')
 var APIkey = "72de6b11fa4df733f08169c8a7643196"
 
 // Fetch Requests
+
 // Current Day Forecast
 
 function currentDay(data) {
@@ -24,7 +25,8 @@ function currentDay(data) {
             return response.json();
         })
         .then(function (data) {
-            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.name}</h2> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/><p>Temp: ${data.main.temp} °F</p><p>Wind: ${data.wind.speed} mph</p><p>Humidity: ${data.main.humidity}%</p></div>`;
+            var today = dayjs().format('MM/DD/YYYY');
+            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.name} [${today}]</h2> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/><p>Temp: ${data.main.temp} °F</p><p>Wind: ${data.wind.speed} mph</p><p>Humidity: ${data.main.humidity}%</p></div>`;
             console.log(data);
         });
 }
@@ -47,9 +49,9 @@ function fiveDayForecast(name) {
                 var day = data.list[i];
                 var date_text = day.dt_txt;
                 var dateOnly = date_text.split(" ")[0];
-                fiveDay.innerHTML += `<div class="forecast-day"><h3>${dateOnly}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp: ${day.main.temp} °F</p><p>Wind: ${day.wind.speed} mph</p><p>Humidity: ${day.main.humidity}%</p></div>`
+                var newDate = dayjs(dateOnly).format('MM/DD/YYYY');
+                fiveDay.innerHTML += `<div class="forecast-day"><h3>${newDate}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp: ${day.main.temp} °F</p><p>Wind: ${day.wind.speed} mph</p><p>Humidity: ${day.main.humidity}%</p></div>`
             }
-            console.log(data);
         })
 
 }
