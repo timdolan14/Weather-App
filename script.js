@@ -21,22 +21,24 @@ function fiveDayForecast(name) {
             return response.json();
         })
         .then(function (data) {
+            currentDay(data);
             fiveDay.innerHTML = "";
             for (let i = 0; i < data.list.length; i += 8) {
                 var day = data.list[i];
                 var date_text = day.dt_txt;
                 var dateOnly = date_text.split(" ")[0];
-                fiveDay.innerHTML += `<div class="forecast-day"><h3>${dateOnly}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
+                fiveDay.innerHTML += `<div class="forecast-day"><h3>${dateOnly}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp: ${day.main.temp} °F</p><p>Wind: ${day.wind.speed} mph</p><p>Humidity: ${day.main.humidity}%</p></div>`
             }
-            // console.log(data);
+            console.log(data);
         })
 
 }
 
 function currentDay(data) {
-    var lat = data.coord.lat
-    var lon = data.coord.lon
-    var currentDayURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`;
+    // let lat = data.coord.lat;
+    // let lon = data.coord.lon;
+    // var currentDayURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`;
+    var currentDayURL = `https://api.openweathermap.org/data/2.5/weather?lat=40&lon=40&appid=${APIkey}&units=imperial`;
     fetch(currentDayURL)
         .then(function (response) {
             if (!response.ok) {
@@ -45,12 +47,13 @@ function currentDay(data) {
             return response.json();
         })
         .then(function (data) {
-            // var day = data.name
+            // var day = data.list;
             // var date_text = day.dt_txt;
             // var dateOnly = date_text.split(" ")[0];
             // cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.name} ${dateOnly}</h2> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`;
             console.log(data);
-            console.log(lon,lat);
+            // currentDay(data);
+            // console.log(lon,lat);
         });
 
 }
