@@ -28,13 +28,15 @@ function fiveDayForecast(name) {
                 var dateOnly = date_text.split(" ")[0];
                 fiveDay.innerHTML += `<div class="forecast-day"><h3>${dateOnly}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
             }
-            console.log(data);
+            // console.log(data);
         })
 
 }
 
-function currentDay(name) {
-    var currentDayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&appid=${APIkey}&units=imperial`;
+function currentDay(data) {
+    var lat = data.coord.lat
+    var lon = data.coord.lon
+    var currentDayURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`;
     fetch(currentDayURL)
         .then(function (response) {
             if (!response.ok) {
@@ -43,12 +45,16 @@ function currentDay(name) {
             return response.json();
         })
         .then(function (data) {
-            var day = data.list[0];
-            var date_text = day.dt_txt;
-            var dateOnly = date_text.split(" ")[0];
-            cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.city.name} ${dateOnly}</h2> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`
-        })
+            // var day = data.name
+            // var date_text = day.dt_txt;
+            // var dateOnly = date_text.split(" ")[0];
+            // cityForecast.innerHTML = `<div class="city-forecast"><h2>${data.name} ${dateOnly}</h2> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp:${day.main.temp}</p><p>Wind:${day.wind.speed}</p><p>Humidity:${day.main.humidity}</p></div>`;
+            console.log(data);
+            console.log(lon,lat);
+        });
+
 }
+
 
 function saveToLocalStorage() {
     cityList.push(citySearch.value);
