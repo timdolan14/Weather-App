@@ -17,16 +17,18 @@ h1 {
 /* Search Bar */
 .city-search {
     height: 45px;
+    font-size: 20px;
     margin-top: 10px;
     padding-left: 10px;
 }
 
 .search-btn {
+    font-size: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100px;
     height: 45px;
-    background-color: rgb(200, 199, 199);
+    background-color: rgb(224, 222, 222);
 }
 
 /* Previous Cities */
@@ -36,21 +38,18 @@ h1 {
 }
 
 .previous-cities {
-    border: black 20px;
-    text-align: justify;
-    
+    border: black 20px;    
 }
 
 .previous-cities button {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
     width: 150px;
     height: 40px;
     line-height: normal;
     background-color: rgb(26, 173, 114);
     color: white;
     margin-top: 20px;
+    padding-top: 8px;
 }
 
 .forecast-day p,
