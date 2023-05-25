@@ -11,7 +11,7 @@ https://github.com/timdolan14/Weather-App
 ## Description 
 ![SC](./photos/Screenshot%202023-05-25%20at%205.51.35%20PM.png)
 
-This app offers users a seamless way to access the current weather conditions of any city. With a simple search, users can enter their desired city and instantly retrieve the latest temperature, humidity, and wind speed information. The app's primary goal is to provide users with accurate and up-to-date weather data, ensuring that they are up to speed on the current conditions.
+This app offers users a seamless way to access the current weather conditions of any city. With a simple search, users can enter their desired city and instantly retrieve the latest temperature, humidity, and wind speed information. The app's primary goal is to provide users with accurate and up-to-date weather data, ensuring that they are up to speed on the current conditions. This app includes a feature that allows users to retrieve current and future weather conditions for a selected city from their search history. When the user clicks on a city in the search history, the system should display up-to-date and future weather information specific to that city.
 
 Navigating through the app is effortless, thanks to its intuitive layout and clear display of weather information. The search functionality is strategically placed, allowing users to quickly enter the city they want to check without any hassle. This design ensures that users can obtain the weather details they need without wasting time or encountering confusion.
 
