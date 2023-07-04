@@ -38,7 +38,7 @@ function fiveDayForecast(name) {
     fetch(fiveDayForecastURL)
         .then(function (response) {
             if (!response.ok) {
-                throw response.json();
+                throw new Error("City not found");
             }
             return response.json();
         })
@@ -53,7 +53,9 @@ function fiveDayForecast(name) {
                 fiveDay.innerHTML += `<div class="forecast-day"><h3>${newDate}</h3> <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/><p>Temp: ${day.main.temp} °F</p><p>Wind: ${day.wind.speed} mph</p><p>Humidity: ${day.main.humidity}%</p></div>`
             }
         })
-
+        .catch(function (error) {
+            cityForecast.innerHTML = `<div class="error-message">City not found! Please enter a valid city.</div>`;
+        });
 }
 
 // Save Buttons to Search History via Local Storage
